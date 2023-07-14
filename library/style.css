@@ -92,10 +92,6 @@ body {
     margin: 0;
     position: absolute;
     top: 220px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0; */
     background-color: #0C0C0E;
     color: #FFFFFF;
     text-align: center;
