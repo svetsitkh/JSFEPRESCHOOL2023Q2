@@ -7,6 +7,9 @@
     <title>Library</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fav/favicon16.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -18,7 +21,7 @@
 
         <header class="header">
 
-            <div class="header-column1">
+            <div>
                 <h1 class="title">
                     Brooklyn Public Library
                 </h1>
@@ -27,11 +30,11 @@
             <div class="header-column2">
                 <nav>
                     <ul class="nav-list">
-                        <li>About</li>
-                        <li>Favorites</li>
-                        <li>Coffee shop</li>
-                        <li>Contacts</li>
-                        <li>Library Card</li>
+                        <li class="nav-item">About</li>
+                        <li class="nav-item">Favorites</li>
+                        <li class="nav-item">Coffee shop</li>
+                        <li class="nav-item">Contacts</li>
+                        <li class="nav-item">Library Card</li>
                     </ul>
                 </nav>
                 <span class="icon_profile"></span>
@@ -41,11 +44,167 @@
 
         <main>
 
-                <section class="welcome">
-                    <div class="layer-gradient"></div>
-                    <p class="welcome-text">
-                        Welcome <br/> to the Brooklyn <br/> Library</p>
-                </section>
+            <section class="welcome">
+                <div class="layer-gradient"></div>
+                <h2 class="welcome-text">Welcome&nbsp;<br>to the Brooklyn<br>Library</h2>
+            </section>
+
+            <section class="section">
+                <h3 class="section-titels text-margin">About</h3>
+                <hr class="line">
+                <p class="content-text line-height40 padding-top20 text-margin">The Brooklyn Library is a free
+                    workspace, a large number of books and a cozy
+                    coffee shop inside </p>
+                <div class="gallery">
+                    <div class="picture"><img src="assets/img/image1.jpg" alt="Picture"></div>
+                    <div class="picture"><img src="assets/img/image2.jpg" alt="Picture"></div>
+                    <div class="picture"><img src="assets/img/image3.jpg" alt="Picture"></div>
+                </div>
+                <div class="pagination">
+                    <div class="pag-item active">
+                        <div class="pag-circle">
+                        </div>
+                    </div>
+                    <div class="pag-item">
+                        <div class="pag-circle">
+                        </div>
+                    </div>
+                    <div class="pag-item">
+                        <div class="pag-circle">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3 class="section-titels text-margin">Favorites</h3>
+                <hr class="line">
+                <div class="container-favorites">
+                    <div class="favorites-column1">
+                        <p class="content-text line-height24 bold">Pick favorites of season</p>
+                        <div class="radio-seasons content-text line-height24">
+                            <label class="radio-btn-area">
+                                <input class="radio-btn" type="radio" name="seasons" checked>
+                                <span class="radio-btn-style"></span>
+                                Winter
+                            </label>
+                            <label class="radio-btn-area">
+                                <input class="radio-btn" type="radio" name="seasons">
+                                <span class="radio-btn-style"></span>
+                                Spring
+                            </label>
+                            <label class="radio-btn-area">
+                                <input class="radio-btn" type="radio" name="seasons">
+                                <span class="radio-btn-style"></span>
+                                Summer
+                            </label>
+                            <label class="radio-btn-area">
+                                <input class="radio-btn" type="radio" name="seasons">
+                                <span class="radio-btn-style"></span>
+                                Autumn
+                            </label>
+                        </div>
+
+                        <div class="book">
+                            <div class="book-frame">
+                                <div>
+                                    <p class="sp-text">Staff Picks</p>
+                                    <hr class="sp-line">
+                                    <p class="book-title">The Book Eaters</p>
+                                    <p class="book-author">By Sunyi Dean</p>
+                                    <p class="book-plot">An unusual sci-fi story about a book eater woman who tries
+                                        desperately to save her dangerous mind-eater son from tradition and certain
+                                        death.
+                                        Complete with dysfunctional family values, light Sapphic romance, and a strong,
+                                        complex protagonist. Not for the faint of heart. </p>
+                                </div>
+
+                                <button class="button-buy">
+                                    Buy
+                                </button>
+
+                                <div class="book-img">
+                                    <img src="assets/img/books/book_winter_1.jpg" alt="Book 1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book">
+                            <div class="book-frame">
+                                <div>
+                                    <p class="sp-text">Staff Picks</p>
+                                    <hr class="sp-line">
+                                    <p class="book-title">Dante: Poet of the Secular World</p>
+                                    <p class="book-author">By Erich Auerbach</p>
+                                    <p class="book-plot">Auerbach's engaging book places the 'Comedy' within the
+                                        tradition
+                                        of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as
+                                        one
+                                        who raised the individual and his drama of soul into something of divine
+                                        significance—an inspired introduction to Dante's main themes.</p>
+                                </div>
+
+                                <button class="button-buy">
+                                    Buy
+                                </button>
+
+                                <div class="book-img">
+                                    <img src="assets/img/books/book_winter_2.jpg" alt="Book 1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="favorites-column2">
+                        <div class="book">
+                            <div class="book-frame">
+                                <div>
+                                    <p class="sp-text">Staff Picks</p>
+                                    <hr class="sp-line">
+                                    <p class="book-title">Cackle</p>
+                                    <p class="book-author">By Rachel Harrison</p>
+                                    <p class="book-plot">Are your Halloween movies of choice The Witches of Eastwick and
+                                        Practical Magic? Look no further than here - where a woman recovering from a
+                                        breakup moves to a quaint town in upstate New York and befriends a beautiful
+                                        witch.</p>
+                                </div>
+
+                                <button class="button-buy">
+                                    Buy
+                                </button>
+
+                                <div class="book-img">
+                                    <img src="assets/img/books/book_winter_3.jpg" alt="Book 1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book">
+                            <div class="book-frame">
+                                <div>
+                                    <p class="sp-text">Staff Picks</p>
+                                    <hr class="sp-line">
+                                    <p class="book-title">The Last Queen</p>
+                                    <p class="book-author">By Clive Irving</p>
+                                    <p class="book-plot">A timely and revelatory new biography of Queen Elizabeth (and
+                                        her
+                                        family) exploring how the Windsors have evolved and thrived as the modern world
+                                        has
+                                        changed around them.</p>
+                                </div>
+
+                                <button class="button-own" disabled>
+                                    Own
+                                </button>
+
+                                <div class="book-img">
+                                    <img src="assets/img/books/book_winter_4.jpg" alt="Book 1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </main>
 
