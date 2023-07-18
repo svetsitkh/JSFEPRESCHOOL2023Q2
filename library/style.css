@@ -482,7 +482,6 @@ body {
 }
 
 .text-in-contacts-bold {
-    /* margin: 0 0 40px 0; */
     margin: 0;
     text-align: left;
     font-family: Inter;
@@ -505,4 +504,45 @@ body {
     height: 414px;
     background-image: url(./assets/img/map.jpg);
     background-size: cover;
+}
+
+.library-cards {
+    height: 513px;
+}
+
+.footer {
+    height: 250px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #0C0C0E;
+}
+
+.footer-conteiner1 {
+    height: 90px;
+}
+
+.footer-conteiner2 {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.footer-line {
+    width: 1400px;
+    margin: 30px 0 25px 0;
+    height: 1px;
+    border-width: 0;
+    background: #FFFFFF
+}
+
+.footer-rss-text {
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #FFFFFF;
 }
