@@ -596,6 +596,13 @@ body {
     letter-spacing: 1px;
 }
 
+.lib-card_button-check:hover {
+    border-color: #BB945F;
+    background: #BB945F;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .lib-card-login {
     display: flex;
     flex-direction: column;
