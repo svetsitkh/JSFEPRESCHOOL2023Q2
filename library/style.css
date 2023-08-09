@@ -7,7 +7,8 @@ body {
 }
 
 .body-container {
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
     background: #FFFFFF;
@@ -210,24 +211,17 @@ body {
 
 .container-favorites {
     padding: 20px 20px 0 20px;
-    display: flex;
+    text-align: left;
+    /* display: flex; */
 }
 
-.favorites-column1 {
+.favorites-seasons {
     width: 50%;
-    text-align: left;
-}
-
-.favorites-column2 {
-    width: 50%;
-    padding-top: 128px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    /* text-align: left; */
 }
 
 .radio-seasons {
+    width: 100%;
     padding: 40px 0;
     display: flex;
     justify-content: space-between;
@@ -260,6 +254,12 @@ body {
     background-color: rgba(18, 18, 21, 0.10);
     border-radius: 15%;
     transition: 0.2s;
+}
+
+.books-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .book {
@@ -398,10 +398,21 @@ body {
     box-sizing: border-box;
     padding: 20px 20px 40px 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
+@media (max-width: 1024px) {
+    .section-container {
+        justify-content: center;
+    }
+    .books-wrapper {
+        justify-content: center;
+    }
+}
+
 .menu-coffee-tea {
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -410,6 +421,7 @@ body {
 }
 
 .menu-desserts-cakes {
+    margin-left: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
