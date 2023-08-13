@@ -7,7 +7,8 @@ body {
 }
 
 .body-container {
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
     background: #FFFFFF;
@@ -132,8 +133,7 @@ body {
 }
 
 .text-margin {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 20px 20px 18px;
 }
 
 .content-text {
@@ -176,12 +176,11 @@ body {
 }
 
 .pagination {
-    width: 78px;
     height: 26px;
     margin-top: 35px;
     margin-bottom: 55px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .pag-item {
@@ -210,26 +209,14 @@ body {
 
 .container-favorites {
     padding: 20px 20px 0 20px;
-    display: flex;
-}
-
-.favorites-column1 {
-    width: 50%;
     text-align: left;
-}
-
-.favorites-column2 {
-    width: 50%;
-    padding-top: 128px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 }
 
 .radio-seasons {
+    max-width: 700px;
     padding: 40px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -260,6 +247,12 @@ body {
     background-color: rgba(18, 18, 21, 0.10);
     border-radius: 15%;
     transition: 0.2s;
+}
+
+.books-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .book {
@@ -390,31 +383,36 @@ body {
 }
 
 .coffee-shop-text {
-    width: 1400px;
+    width: 100%;
     letter-spacing: 2px;
 }
 
 .section-container {
     box-sizing: border-box;
-    padding: 20px 20px 40px 20px;
+    padding: 20px 20px 0 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .menu-coffee-tea {
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 40px;
+    margin-bottom: 40px;
 }
 
 .menu-desserts-cakes {
+    margin-left: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 40px;
+    margin-bottom: 40px;
 }
 
 .menu-title {
@@ -468,6 +466,10 @@ body {
     margin: 0;
 }
 
+.contact-inf {
+    margin-bottom: 40px;
+}
+
 .text-in-contacts {
     margin: 20px 0 20px 0;
     text-align: left;
@@ -504,10 +506,11 @@ body {
     height: 414px;
     background-image: url(./assets/img/map.jpg);
     background-size: cover;
+    align-content: center;
+    margin-bottom: 40px;
 }
 
 .library-cards {
-    /* height: 513px; */
     display: flex;
     justify-content: space-between;
 }
@@ -530,6 +533,7 @@ body {
     height: 386px;
     border: 3px solid #BB945F;
     box-sizing: border-box;
+    margin-bottom: 25px;
 }
 
 .lib-card-bg {
@@ -609,6 +613,7 @@ body {
     align-items: end;
     max-width: 456px;
     gap: 35px 0;
+    margin-bottom: 30px;
 }
 
 .login-title {
@@ -641,6 +646,7 @@ body {
 .footer {
     height: 250px;
     padding: 0 20px;
+    margin-top: 11px;
     box-sizing: border-box;
     background-color: #0C0C0E;
 }
@@ -690,8 +696,8 @@ body {
     color: #FFFFFF;
 }
 .footer-line {
-    width: 1400px;
-    margin: 0 0 25px 0;
+    width: 100%;
+    margin: 0 auto 25px auto;
     height: 1px;
     border-width: 0;
     background: #FFFFFF
@@ -713,4 +719,111 @@ body {
     letter-spacing: 2px;
     text-decoration: none;
     color: #FFFFFF;
+}
+
+/* ---------------adaptive----------------- */
+
+.burger-menu {
+    width: 45px;
+    height: 24px;
+    margin: 0 20px 0 20px;
+    display: none;
+    flex-shrink: 0;
+    background-image: url(assets/svg/burger.svg);
+    background-repeat: no-repeat;
+}
+
+.picture1 {
+    width: 450px;
+    height: 560px;
+    flex-shrink: 0;
+    margin: 0;
+    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.carret-left {
+    width: 24px;
+    height: 24px;
+    margin: 40px 0 0 25px;
+    flex-shrink: 0;
+    background-image: url(assets/svg/carret_left.svg);
+    display: none;
+}
+
+.carret-right {
+    width: 24px;
+    height: 24px;
+    margin: 40px 25px 0 0;
+    flex-shrink: 0;
+    background-image: url(assets/svg/carret_right.svg);
+    display: none;
+}
+
+.pag-item:nth-child(even) {
+    display: none;
+}
+
+@media (max-width: 1390px) {
+    .picture:last-child {
+        display: none;
+    }
+    .gallery {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 1260px) {
+    .section-container {
+        justify-content: center;
+    }
+    .books-wrapper {
+        justify-content: center;
+    }
+    .pagination {
+        margin-top: 20px;
+    }
+    .contact-inf {
+        margin-bottom: 83px;
+        width: 100%;
+    }
+    .lib-card-login {
+        align-items: center;
+        max-width: 600px;
+    }
+    .login-info {
+        text-align: center;
+    }
+    .login-buttons-container {
+        margin-top: 5px;
+}
+
+@media (max-width: 1070px) {
+    .nav-list {
+        display: none;
+    }
+    .burger-menu {
+        display: inline-block;
+    }
+    .gallery {
+        justify-content: center;
+    }
+    .picture {
+        display: none;
+    }
+    .picture1 {
+        width: 100%;
+    }
+    .carret-left {
+        display: block;
+    }
+    .carret-right {
+        display: block;
+    }
+    .pag-item:nth-child(even) {
+        display: block;
+    }
 }

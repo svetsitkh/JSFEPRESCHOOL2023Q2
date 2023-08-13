@@ -38,6 +38,7 @@
                     </ul>
                 </nav>
                 <span class="icon_profile"></span>
+                <span class="burger-menu"></span>
             </div>
 
         </header>
@@ -56,12 +57,24 @@
                     workspace, a large number of books and a cozy
                     coffee shop inside </p>
                 <div class="gallery">
-                    <div class="picture"><img src="assets/img/image1.jpg" alt="Picture"></div>
+                    <div class="picture1">
+                        <span class="carret-left"></span>
+                        <img src="assets/img/image1.jpg" alt="Picture">
+                        <span class="carret-right"></span>
+                    </div>
                     <div class="picture"><img src="assets/img/image2.jpg" alt="Picture"></div>
                     <div class="picture"><img src="assets/img/image3.jpg" alt="Picture"></div>
                 </div>
                 <div class="pagination">
                     <div class="pag-item active">
+                        <div class="pag-circle">
+                        </div>
+                    </div>
+                    <div class="pag-item">
+                        <div class="pag-circle">
+                        </div>
+                    </div>
+                    <div class="pag-item">
                         <div class="pag-circle">
                         </div>
                     </div>
@@ -80,7 +93,7 @@
                 <h2 class="section-title text-margin">Favorites</h2>
                 <hr class="line">
                 <div class="container-favorites">
-                    <div class="favorites-column1">
+                    <div class="favorites-seasons">
                         <p class="content-text line-height24 bold">Pick favorites of season</p>
                         <div class="radio-seasons content-text line-height24">
                             <label class="radio-btn-area">
@@ -104,7 +117,9 @@
                                 Autumn
                             </label>
                         </div>
+                    </div>
 
+                    <div class="books-wrapper">
                         <div class="book">
                             <div class="book-frame">
                                 <div>
@@ -134,14 +149,12 @@
                                 <div>
                                     <p class="sp-text">Staff Picks</p>
                                     <hr class="sp-line">
-                                    <p class="book-title">Dante: Poet of the Secular World</p>
-                                    <p class="book-author">By Erich Auerbach</p>
-                                    <p class="book-plot">Auerbach's engaging book places the 'Comedy' within the
-                                        tradition
-                                        of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as
-                                        one
-                                        who raised the individual and his drama of soul into something of divine
-                                        significance—an inspired introduction to Dante's main themes.</p>
+                                    <p class="book-title">Cackle</p>
+                                    <p class="book-author">By Rachel Harrison</p>
+                                    <p class="book-plot">Are your Halloween movies of choice The Witches of Eastwick and
+                                        Practical Magic? Look no further than here - where a woman recovering from a
+                                        breakup moves to a quaint town in upstate New York and befriends a beautiful
+                                        witch.</p>
                                 </div>
 
                                 <button class="button-buy">
@@ -153,20 +166,20 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="favorites-column2">
                         <div class="book">
                             <div class="book-frame">
                                 <div>
                                     <p class="sp-text">Staff Picks</p>
                                     <hr class="sp-line">
-                                    <p class="book-title">Cackle</p>
-                                    <p class="book-author">By Rachel Harrison</p>
-                                    <p class="book-plot">Are your Halloween movies of choice The Witches of Eastwick and
-                                        Practical Magic? Look no further than here - where a woman recovering from a
-                                        breakup moves to a quaint town in upstate New York and befriends a beautiful
-                                        witch.</p>
+                                    <p class="book-title">Dante: Poet of the Secular World</p>
+                                    <p class="book-author">By Erich Auerbach</p>
+                                    <p class="book-plot">Auerbach's engaging book places the 'Comedy' within the
+                                        tradition
+                                        of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as
+                                        one
+                                        who raised the individual and his drama of soul into something of divine
+                                        significance—an inspired introduction to Dante's main themes.</p>
                                 </div>
 
                                 <button class="button-buy">
@@ -186,11 +199,7 @@
                                     <hr class="sp-line">
                                     <p class="book-title">The Last Queen</p>
                                     <p class="book-author">By Clive Irving</p>
-                                    <p class="book-plot">A timely and revelatory new biography of Queen Elizabeth (and
-                                        her
-                                        family) exploring how the Windsors have evolved and thrived as the modern world
-                                        has
-                                        changed around them.</p>
+                                    <p class="book-plot">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
                                 </div>
 
                                 <button class="button-own" disabled>
@@ -202,8 +211,8 @@
                                 </div>
                             </div>
                         </div>
+                       </div>
                     </div>
-                </div>
             </section>
 
             <section class="section" id="coffee_shop">
@@ -211,12 +220,9 @@
                 <hr class="line">
                 <div class="coffee-shop-text">
                     <p class="content-text line-height40 padding-top20 text-margin">
-                        In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and
-                        friendly conversation.&nbsp;
-                        <br>You can get a favorite book and read in coffee shop. our barista to cook you best coffee,
-                        and
-                        also
-                        you can try desserts from bakery.
+                        In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.
+                        <br>
+                        You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you can try desserts from bakery.
                     </p>
                 </div>
 
@@ -308,7 +314,7 @@
                 <h2 class="section-title text-margin">Our Contacts</h2>
                 <hr class="line">
                 <div class="section-container">
-                    <div>
+                    <div class="contact-inf">
                         <p class="text-in-contacts-bold">For all Library inquiries:</p>
                         <br>
                         <p class="text-in-contacts">
@@ -353,9 +359,7 @@
                     </div>
                     <div class="lib-card-login">
                         <h3 class="login-title">Get a reader card</h3>
-                        <p class="login-info">You will be able to see a reader card after logging into account or you
-                            can register
-                            a new account</p>
+                        <p class="login-info">You will be able to see a reader card after logging into account or you can register a new account</p>
                         <div class="login-buttons-container">
                             <button class="button-buy">Sign up</button>
                             <button class="button-buy">Log in</button>
