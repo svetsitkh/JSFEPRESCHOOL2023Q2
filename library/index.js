@@ -1,31 +1,31 @@
+console.log(
+	'Общая оценка 50 баллов \n Вёрстка соответствует макету. Ширина экрана 768px +26 \n Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12 \n На ширине экрана 768рх реализовано адаптивное меню +12'
+);
 
-console.log('1. Вёрстка валидная +10.\n' + '\n' +
-'2. Вёрстка семантическая +11\n' +
-'В коде страницы присутствуют следующие элементы (указано минимальное количество, может быть больше):\n' +
-'- <header>, <main>, <footer> +2.\n' +
-'- шесть элементов <section> (по количеству секций) +2.\n' +
-'- только один заголовок <h1> +2.\n' +
-'- пять заголовков <h2> (легко отличимы на верхних границах секций, имеют единый стиль) +2.\n' +
-'- один элемент <nav> (панель навигации в хедере) +2.\n' +
-'- один список ul > li > a (панель навигации) +1.\n' + '\n' +
-'3. Вёрстка соответствует макету +40\n' +
-'- блок <header> +8;\n' +
-'- секция Welcome +4;\n' +
-'- секция About +6;\n' +
-'- секция Favorites +8;\n' +
-'- секция CoffeShop +6;\n' +
-'- секция Contacts +6;\n' +
-'- секция LibraryCard 0;\n' +
-'- блок <footer> +2: не успела сделать весь, есть только год, ссылки на RRS и GitHub.\n' + '\n' +
-'4. Общие требования к верстке +20\n' +
-'- для построения сетки используются флексы или гриды (display: flex...) +2;\n' +
-'- при уменьшении масштаба страницы браузера вся вёрстка (контент и фоны) размещается по центру, а не сдвигается в сторону +2;\n' +
-'- иконки добавлены в формате .svg +2;\n' +
-'- изображения добавлены в формате .jpg (.jpeg) или .png +2;\n' +
-'- есть favicon: иконка должна содержать 3 буквы "BPL" (Brooklyn Public Library) +2;\n' +
-'- плавная прокрутка по якорям +2;\n' +
-'- в футере название ссылки Username заменено и ведет на GitHub студента +2;\n' +
-'- в футере ссылка The Rolling Scopes School ведет на страницу курса https://rs.school/js-stage0/ +2;\n' +
-'- интерактивность элементов согласно макету +2;\n' +
-'- обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы +2.\n' +
-'\n' + 'Итого: 81 балл.')
+// ----------
+
+const burger = document.querySelector('.burger-menu-icon');
+const nav = document.querySelector('.nav-menu');
+const navItems = document.querySelectorAll('.nav-list a');
+const body = document.querySelector('body');
+const cover = document.querySelector('.cover-layer');
+
+burger?.addEventListener('click', function () {
+    burger?.classList.toggle('_active');
+    nav?.classList.toggle('_active');
+    body?.classList.toggle('no-scroll');
+    cover?.classList.toggle('_active');
+});
+
+function CloseBurgerMenu() {
+    burger?.classList.remove('_active');
+    nav?.classList.remove('_active');
+    body?.classList.remove('no-scroll');
+    cover?.classList.remove('_active');
+}
+
+navItems.forEach(element => {
+    element.addEventListener('click', CloseBurgerMenu);
+});
+
+cover?.addEventListener('click', CloseBurgerMenu);
