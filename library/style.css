@@ -165,7 +165,7 @@ body {
 
 .gallery {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 20px;
 }
 
@@ -202,7 +202,7 @@ body {
     background-color: #BB945F;
 }
 
-.pag-item:hover {
+.pag-item:hover:not(.active){
     cursor: pointer;
     background-color: rgba(18, 18, 21, 0.10);
     border-radius: 15%;
@@ -750,7 +750,7 @@ body {
 .carret-left {
     width: 24px;
     height: 24px;
-    margin: 40px 0 0 25px;
+    margin: 288px 58px 0 0;
     flex-shrink: 0;
     background-image: url(assets/svg/carret_left.svg);
     display: none;
@@ -759,13 +759,25 @@ body {
 .carret-right {
     width: 24px;
     height: 24px;
-    margin: 40px 25px 0 0;
+    margin: 288px 0 0 58px;
     flex-shrink: 0;
     background-image: url(assets/svg/carret_right.svg);
     display: none;
 }
 
-.pag-item:nth-child(even) {
+.carret-left:hover {
+    cursor: pointer;
+}
+
+.carret-right:hover {
+    cursor: pointer;
+}
+
+.pag-item:nth-child(4) {
+    display: none;
+}
+
+.pag-item:nth-child(5) {
     display: none;
 }
 
@@ -774,11 +786,8 @@ body {
 }
 
 @media (max-width: 1390px) {
-    .picture:last-child {
-        display: none;
-    }
-    .gallery {
-        justify-content: space-around;
+    .gallery-wrapper {
+        width: 925px;
     }
 }
 
@@ -863,16 +872,8 @@ body {
         z-index: 1;
     }
 
-    .gallery {
-        justify-content: center;
-    }
-
-    .picture {
-        display: none;
-    }
-
-    .picture1 {
-        width: 100%;
+    .gallery-wrapper {
+    width: 450px;
     }
 
     .carret-left {
@@ -883,7 +884,28 @@ body {
         display: block;
     }
 
-    .pag-item:nth-child(even) {
+    .pag-item:nth-child(4) {
         display: block;
     }
+
+    .pag-item:nth-child(5) {
+        display: block;
+    }
+}
+
+/* ---------------library part3----------------- */
+.gallery-wrapper {
+    overflow: hidden;
+}
+
+.gallery-carousel {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 25px;
+    position: relative;
+    transition: transform 0.8s;
+}
+
+.inactive:hover {
+    cursor: auto;
 }
