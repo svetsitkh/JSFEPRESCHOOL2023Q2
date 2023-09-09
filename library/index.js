@@ -1,5 +1,5 @@
 console.log(
-	'Общая оценка 50 баллов \n Вёрстка соответствует макету. Ширина экрана 768px +26 \n Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12 \n На ширине экрана 768рх реализовано адаптивное меню +12'
+	'Library#3 \n Общая оценка 25 баллов: \n Ограниченная карусель в блоке About +25'
 );
 
 // ----------
@@ -41,14 +41,18 @@ let carouselCounter = 0;
 const updateCarretView = () => {
     if (carouselCounter === 0) {
         carretLeft.style.opacity = '0.3';
+        carretLeft.classList.add('inactive');
      } else {
         carretLeft.style.opacity = '1';
+        carretLeft.classList.remove('inactive');
      }
 
      if (carouselCounter >= paginationItems.length - 1) {
         carretRight.style.opacity = '0.3';
+        carretRight.classList.add('inactive');
      } else {
         carretRight.style.opacity = '1';
+        carretRight.classList.remove('inactive');
      }
 }
 

@@ -202,7 +202,7 @@ body {
     background-color: #BB945F;
 }
 
-.pag-item:hover {
+.pag-item:hover:not(.active){
     cursor: pointer;
     background-color: rgba(18, 18, 21, 0.10);
     border-radius: 15%;
@@ -786,12 +786,6 @@ body {
 }
 
 @media (max-width: 1390px) {
-    /* .picture:last-child {
-        display: none;
-    }
-    .gallery {
-        justify-content: space-around;
-    } */
     .gallery-wrapper {
         width: 925px;
     }
@@ -878,18 +872,6 @@ body {
         z-index: 1;
     }
 
-    /* .gallery {
-        justify-content: center;
-    } */
-
-    /* .picture {
-        display: none;
-    } */
-
-    /* .picture1 {
-        width: 100%;
-    } */
-
     .gallery-wrapper {
     width: 450px;
     }
@@ -913,7 +895,6 @@ body {
 
 /* ---------------library part3----------------- */
 .gallery-wrapper {
-    /* margin: 0 auto; */
     overflow: hidden;
 }
 
@@ -922,5 +903,9 @@ body {
     justify-content: space-between;
     column-gap: 25px;
     position: relative;
-    transition: transform 0.6s;
+    transition: transform 0.8s;
+}
+
+.inactive:hover {
+    cursor: auto;
 }
