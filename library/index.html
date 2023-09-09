@@ -58,13 +58,17 @@
                     workspace, a large number of books and a cozy
                     coffee shop inside </p>
                 <div class="gallery">
-                    <div class="picture1">
-                        <span class="carret-left"></span>
-                        <img src="assets/img/image1.jpg" alt="Picture">
-                        <span class="carret-right"></span>
+                    <span class="carret-left"></span>
+                    <div class="gallery-wrapper">
+                        <div class="gallery-carousel">
+                            <div class="picture"><img src="assets/img/image1.jpg" alt="Picture 1"></div>
+                            <div class="picture"><img src="assets/img/image2.jpg" alt="Picture 2"></div>
+                            <div class="picture"><img src="assets/img/image3.jpg" alt="Picture 3"></div>
+                            <div class="picture"><img src="assets/img/image4.jpg" alt="Picture 4"></div>
+                            <div class="picture"><img src="assets/img/image5.jpg" alt="Picture 5"></div>
+                        </div>
                     </div>
-                    <div class="picture"><img src="assets/img/image2.jpg" alt="Picture"></div>
-                    <div class="picture"><img src="assets/img/image3.jpg" alt="Picture"></div>
+                    <span class="carret-right"></span>
                 </div>
                 <div class="pagination">
                     <div class="pag-item active">
@@ -203,8 +207,11 @@
                                     <p class="book-plot">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
                                 </div>
 
-                                <button class="button-own" disabled>
+                                <!-- <button class="button-own" disabled>
                                     Own
+                                </button> -->
+                                <button class="button-buy">
+                                    Buy
                                 </button>
 
                                 <div class="book-img">
@@ -355,7 +362,7 @@
                                 <input class="lib-card_input" type="text" name="card_number" id="card_number"
                                     placeholder="Card number">
                             </div>
-                            <button class="lib-card_button-check" type="submit">Check the card</button>
+                            <button class="lib-card_button-check" type="submit" disabled>Check the card</button>
                         </form>
                     </div>
                     <div class="lib-card-login">

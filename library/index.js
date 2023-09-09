@@ -29,3 +29,61 @@ navItems.forEach(element => {
 });
 
 cover?.addEventListener('click', CloseBurgerMenu);
+
+/* ---------------library part3----------------- */
+const galleryCarousel = document.querySelector('.gallery-carousel');
+const paginationItems = document.querySelectorAll('.pag-item');
+const carretLeft = document.querySelector('.carret-left');
+const carretRight = document.querySelector('.carret-right');
+
+let carouselCounter = 0;
+
+const updateCarretView = () => {
+    if (carouselCounter === 0) {
+        carretLeft.style.opacity = '0.3';
+     } else {
+        carretLeft.style.opacity = '1';
+     }
+
+     if (carouselCounter >= paginationItems.length - 1) {
+        carretRight.style.opacity = '0.3';
+     } else {
+        carretRight.style.opacity = '1';
+     }
+}
+
+updateCarretView();
+
+const pagItemActive = () => {
+    paginationItems.forEach((pagItem)=>{
+        pagItem.classList.remove('active');
+    })
+    paginationItems[carouselCounter].classList.add('active');
+  }
+
+const moveCarousel = () => {
+    galleryCarousel.style.transform = `translateX(${-carouselCounter * 475}px)`;
+    pagItemActive();
+    updateCarretView();
+}
+
+paginationItems.forEach((pagItem,i) => {
+    pagItem.addEventListener('click', () => {
+        carouselCounter = i;
+        moveCarousel();
+    })
+})
+
+carretLeft.addEventListener('click', () => {
+    if (carouselCounter > 0) {
+        carouselCounter--;
+        moveCarousel();
+     }
+})
+
+carretRight.addEventListener('click', () => {
+    if (carouselCounter < paginationItems.length - 1) {
+        carouselCounter++;
+        moveCarousel();
+     }
+})
