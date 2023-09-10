@@ -284,7 +284,7 @@ body {
     height: 300px;
     object-fit: cover;
     position: absolute;
-    bottom: 0;
+    bottom: -0.7px;
     right: 0;
 }
 
@@ -798,6 +798,12 @@ body {
     .books-wrapper {
         justify-content: center;
     }
+    .favorites-seasons {
+        position: sticky;
+        top: 0;
+        background-color: #FFFFFF;
+        z-index: 1;
+    }
     .pagination {
         margin-top: 20px;
     }
@@ -869,7 +875,7 @@ body {
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 1;
+        z-index: 2;
     }
 
     .gallery-wrapper {
@@ -908,4 +914,8 @@ body {
 
 .inactive:hover {
     cursor: auto;
+}
+
+.books-wrapper.hidden {
+
 }
