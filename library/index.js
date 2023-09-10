@@ -1,6 +1,4 @@
-console.log(
-	'Library#3 \n Общая оценка 25 баллов: \n Ограниченная карусель в блоке About +25'
-);
+console.log('Library#3 \n Общая оценка 50 баллов!\n Этап 1:\n - Ограниченная карусель в блоке About +25;\n - Слайдер в блоке Favorites +25.');
 
 // ----------
 
@@ -31,6 +29,8 @@ navItems.forEach(element => {
 cover?.addEventListener('click', CloseBurgerMenu);
 
 /* ---------------library part3----------------- */
+
+// --------------Slider in section About
 const galleryCarousel = document.querySelector('.gallery-carousel');
 const paginationItems = document.querySelectorAll('.pag-item');
 const carretLeft = document.querySelector('.carret-left');
@@ -86,8 +86,71 @@ carretLeft.addEventListener('click', () => {
 })
 
 carretRight.addEventListener('click', () => {
-    if (carouselCounter < paginationItems.length - 1) {
+    if (carouselCounter < (paginationItems.length - 1)) {
         carouselCounter++;
         moveCarousel();
      }
 })
+
+// -------------- Fade in / fade out in section Favorites
+const radioBtn = document.querySelectorAll('.radio-btn');
+let currentBooksWrapper = document.getElementById('winter_books');
+let nextBooksWrapper = null;
+let isAnimating = false;
+
+
+radioBtn.forEach((el) => {
+    el.addEventListener('click', () => {
+        const nextBooksWrapperId = `${el.value}_books`;
+
+        if (!nextBooksWrapper) {
+            nextBooksWrapper = document.getElementById(nextBooksWrapperId);
+            if (isAnimating === false) {
+                fadeOut(currentBooksWrapper);
+            }
+        } else {
+            nextBooksWrapper = document.getElementById(nextBooksWrapperId);
+        }
+
+    })
+})
+
+function fadeOut(el) {
+    el.style.opacity = 1;
+    (function fade() {
+        if ((el.style.opacity -= 0.02) < 0) {
+            el.style.display = "none";
+            isAnimating = false;
+            if (nextBooksWrapper) {
+                currentBooksWrapper = nextBooksWrapper;
+                nextBooksWrapper = null;
+                fadeIn(currentBooksWrapper);
+            }
+        } else {
+            isAnimating = true;
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+function fadeIn(el, display = 'flex') {
+    el.style.opacity = 0;
+    el.style.display = display;
+    (function fade() {
+        var val = parseFloat(el.style.opacity);
+        if (!((val += 0.02) > 1)) {
+            el.style.opacity = val;
+            isAnimating = true;
+            requestAnimationFrame(fade);
+        } else {
+            isAnimating = false;
+            if (nextBooksWrapper) {
+                if (nextBooksWrapper !== el) {
+                    fadeOut(currentBooksWrapper);
+                } else {
+                    nextBooksWrapper = null;
+                }
+            }
+        }
+    })();
+};
