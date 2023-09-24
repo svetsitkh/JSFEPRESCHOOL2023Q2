@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio-player</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="player_background">
+            <img class="image" id="background" src="./assets/img/kola_pk.jpg" alt="Background image">
+        </div>
+
+        <div class="player">
+            <div class="player_img">
+                <img class="audio_image" id="audio_img" src="./assets/img/kola_pk.jpg" alt="Audio image">
+            </div>
+            <div class="controls_wrapper">
+                <div class="controls_top">
+                    <button type="button" class="player_control audio_play" id="play_btn"></button>
+                    <div>
+                        <h2 class="singer">Kola</h2>
+                        <h3 class="song">Під крилом</h3>
+                    </div>
+                </div>
+                <div class="controls_bottom">
+                    <button type="button" class="player_control backward"></button>
+                    <button type="button" class="player_control forward"></button>
+                </div>
+            </div>
+            <audio src="./assets/audio/kola_pid_krylom.mp3"></audio>
+
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
