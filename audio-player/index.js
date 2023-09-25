@@ -27,9 +27,36 @@ const background = document.querySelector('#background');
 const audioImg = document.querySelector('#audio_img');
 const singer = document.querySelector('.singer');
 const song = document.querySelector('.song');
+const currentTimeInf = document.querySelector('.currentTime');
+const durationTimeInf = document.querySelector('.durationTime');
+const progressBar = document.querySelector('.progress_bar');
 
 isPlaying = false;
 currentSongIndex = 0;
+
+function updateAudioInformation() {
+
+    let currentTime = audio.currentTime;
+    let duration = audio.duration;
+
+    let progressPercent = currentTime * (100 / duration);
+    progressBar.value = progressPercent;
+    progressBar.style.background = `linear-gradient(to right, #588d91 0%, #588d91 ${progressPercent}%, #c6e7e9 ${progressPercent}%, #c6e7e9 100%)`;
+
+    let currentTimeMinutes = Math.floor(currentTime / 60);
+    let currentTimeSeconds = Math.floor(currentTime - currentTimeMinutes * 60);
+    let durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration - durationMinutes * 60);
+
+    currentTimeInf.innerHTML = `${currentTimeMinutes}:${currentTimeSeconds.toFixed().padStart(2, "0")}`;
+    durationTimeInf.innerHTML = `${durationMinutes}:${durationSeconds.toFixed().padStart(2, "0")}`;
+
+    if (currentTime >= duration) {
+       forwardAudio();
+    }
+}
+
+audio.addEventListener('timeupdate', updateAudioInformation);
 
 function playAudio() {
     audio.currentTime = 0;
@@ -97,3 +124,11 @@ function backwardAudio() {
 
 forwardBtn.addEventListener('click', forwardAudio);
 backwardBtn.addEventListener('click', backwardAudio);
+
+function updateAudioCurrentTime() {
+    const newCurrentTime = audio.duration * (progressBar.value / 100);
+    audio.currentTime = newCurrentTime;
+    // controls.progress.style.width = `${point}%`;
+  }
+
+progressBar.addEventListener('input', updateAudioCurrentTime);
