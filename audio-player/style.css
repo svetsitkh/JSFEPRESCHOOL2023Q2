@@ -4,21 +4,16 @@ html {
 
 body {
     box-sizing: border-box;
-    /* width: 100%; */
     font-family: "Barlow", sans-serif;
     font-size: 16px;
     background-color: #2e2d31;
 }
 
-.player_background{
+.player_background {
     position: fixed;
     width: 100%;
     height: 100%;
-    /* margin: 0 auto; */
     top: 0;
-    /* left: 0; */
-    /* right: 0; */
-    /* bottom: 0; */
     filter: blur(3px);
     z-index: -1;
 }
@@ -53,9 +48,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* max-width: 250px; */
-
-    /* margin: 0 auto; */
 }
 
 .audio_image {
@@ -97,6 +89,50 @@ body {
     background-color: #588d91;
 }
 
+.controls_middle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.progress_bar {
+    -webkit-appearance: none;
+    appearance: none;
+    /* position: absolute;
+    z-index: 4; */
+    height: 5px;
+    background: #c6e7e9;
+    width: 100%;
+    border-radius: 25px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.progress_bar::-webkit-slider-thumb {
+    width: 8px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    background: #8eefb0;
+}
+
+.time_information {
+    display: flex;
+    justify-content: space-between;
+}
+
+.currentTime {
+    font-size: 12px;
+    color: #c6e7e9;
+}
+
+.durationTime {
+    font-size: 12px;
+    color: #c6e7e9;
+}
+
 .audio_play {
     background-image: url('./assets/svg/play.svg');
 }
@@ -131,19 +167,3 @@ body {
     display: flex;
     justify-content: space-around;
 }
-
-/* .audio_btn {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  } */
-
-/* .audio_btn_hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  } */
