@@ -42,6 +42,7 @@ body {
     background: #2e2d31;
     border-radius: 10px;
     box-shadow: 0 0 15px #000000;
+    z-index: 2;
 }
 
 .player_img {
@@ -98,8 +99,6 @@ body {
 .progress_bar {
     -webkit-appearance: none;
     appearance: none;
-    /* position: absolute;
-    z-index: 4; */
     height: 5px;
     background: #c6e7e9;
     width: 100%;
@@ -167,3 +166,35 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+.footer_wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer_context {
+    margin: 0 auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #c6e7e9;
+    background-image: linear-gradient( to bottom, rgba(46, 45, 49, 0.6), rgba(46, 45, 49, 0.6) );
+    border-radius: 12px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.rss-logo {
+    width: 80px;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-size: 20px;
+    color: #c6e7e9;
+}
+

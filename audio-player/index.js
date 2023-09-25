@@ -128,7 +128,6 @@ backwardBtn.addEventListener('click', backwardAudio);
 function updateAudioCurrentTime() {
     const newCurrentTime = audio.duration * (progressBar.value / 100);
     audio.currentTime = newCurrentTime;
-    // controls.progress.style.width = `${point}%`;
   }
 
 progressBar.addEventListener('input', updateAudioCurrentTime);
