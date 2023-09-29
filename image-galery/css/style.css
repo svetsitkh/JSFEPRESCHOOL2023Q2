@@ -1,0 +1,72 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Barlow", sans-serif;
+    font-size: 16px;
+    background-color: #fcf7fd;
+}
+
+.body_container {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.header_container {
+    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 70px;
+    padding: 20px;
+}
+
+.logo {
+    width: 95px;
+    margin: 0 205px 0 40px;
+    flex-shrink: 0;
+}
+
+h2 {
+    color: #2c4f52;
+}
+
+.input_box {
+    margin: 5px 20px 0 0;
+    width: 350px;
+    height: 50px;
+}
+
+.search_input {
+    font-size: 24px;
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 40px;
+    border-width: thin;
+    border-color: rgba(22, 50, 49, 0.5);
+    box-shadow: 3px 3px 10px 0px  rgba(42, 99, 96, 0.5);
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.image {
+    object-fit: cover;
+    /* border: 1px solid #ccc; */
+    box-shadow: 7px 7px 10px 0px  rgba(42, 99, 96, 0.5);
+    max-width: 100%;
+    height: 100%;
+  }
+
+.search_btn:hover {
+    cursor: pointer;
+}
