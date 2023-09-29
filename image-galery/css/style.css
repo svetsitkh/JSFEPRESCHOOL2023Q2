@@ -26,7 +26,7 @@ body {
 
 .logo {
     width: 95px;
-    margin: 0 20px 0 40px;
+    margin: 0 205px 0 40px;
     flex-shrink: 0;
 }
 
@@ -35,7 +35,7 @@ h2 {
 }
 
 .input_box {
-    margin: 0 40px 0 20px;
+    margin: 5px 20px 0 0;
     width: 350px;
     height: 50px;
 }
@@ -54,15 +54,19 @@ h2 {
 
 .grid_container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 20px;
     align-items: center;
 }
 
 .image {
     object-fit: cover;
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 10px 0px  rgba(42, 99, 96, 0.5);
+    /* border: 1px solid #ccc; */
+    box-shadow: 7px 7px 10px 0px  rgba(42, 99, 96, 0.5);
     max-width: 100%;
     height: 100%;
   }
+
+.search_btn:hover {
+    cursor: pointer;
+}
