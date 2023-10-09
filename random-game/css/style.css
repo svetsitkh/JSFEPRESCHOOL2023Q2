@@ -13,24 +13,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 1280px;
     min-height: 96vh;
+    max-width: 1280px;
     margin: 10px auto;
 }
 
 .main {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     justify-content: flex-start;
     align-items: center;
     min-height: 760px;
 }
 
 .score_plate {
-    width: 594px;
     height: 190px;
+    width: 594px;
     background-image: url('../assets/img/plate.png');
     background-repeat: no-repeat;
+}
+
+#canvas {
+    display: block;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.8);
 }
 
 .footer_context {
