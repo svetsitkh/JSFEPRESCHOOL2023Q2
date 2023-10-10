@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 
 let step = 28;
 let score = 0;
+let isPaused = false;
 
 const background = new Image();
 background.src = './assets/img/background.jpg';
@@ -17,6 +18,12 @@ snakeHeadImage.src = './assets/img/snake_head.png';
 
 const snakeBodyImage = new Image();
 snakeBodyImage.src = './assets/img/snake_body.png';
+
+const pausedImage = new Image();
+pausedImage.src = './assets/img/paused.png';
+
+const gameOverImage = new Image();
+gameOverImage.src = './assets/img/game_over.png';
 
 let snakeCoordinates = [];
 snakeCoordinates[0] = {
@@ -46,24 +53,36 @@ let route = 'up';
 let routeDegrees = 0;
 
 function setRoute(ev) {
-   if (ev.keyCode == 38 && route != 'down') {
-        route = 'up';
-        routeDegrees = 0;
-    } else if (ev.keyCode == 39 && route != 'left') {
-        route = 'right';
-        routeDegrees = 90;
-    } else if (ev.keyCode == 40 && route != 'up') {
-        route = 'down';
-        routeDegrees = 180;
-    } else if (ev.keyCode == 37 && route !== 'right') {
-        route = 'left';
-        routeDegrees = -90;
+    // console.log('keyCode = ', ev.keyCode);
+    if (ev.keyCode == 32) {
+        isPaused = !isPaused;
+    }
+
+    if (!isPaused) {
+        if (ev.keyCode == 38 && route != 'down') {
+            route = 'up';
+            routeDegrees = 0;
+        } else if (ev.keyCode == 39 && route != 'left') {
+            route = 'right';
+            routeDegrees = 90;
+        } else if (ev.keyCode == 40 && route != 'up') {
+            route = 'down';
+            routeDegrees = 180;
+        } else if (ev.keyCode == 37 && route !== 'right') {
+            route = 'left';
+            routeDegrees = -90;
+        }
     }
 }
 
 document.addEventListener('keydown', setRoute);
 
 function drawSnakeGame() {
+
+    if (isPaused) {
+        ctx.drawImage(pausedImage, 45, 220);
+        return;
+    }
 
     ctx.drawImage(background, 0, 0);
     ctx.drawImage(foodImage, foodCoordinates.x, foodCoordinates.y);
@@ -88,9 +107,6 @@ function drawSnakeGame() {
 
     scoreText.innerHTML = score.toString();
 
-	if(snakeX < 0 || snakeX > step * 19 || snakeY < 0 || snakeY > step * 19)
-		clearInterval(game);
-
     switch (route) {
         case 'left':
             snakeX -= step;
@@ -104,6 +120,11 @@ function drawSnakeGame() {
         case 'down':
             snakeY += step;
             break;
+    }
+
+    if(snakeX < 0 || snakeX > step * 19 || snakeY < 0 || snakeY > step * 19) {
+		endGame();
+        return;
     }
 
 	let newSnakeHead = {
@@ -127,9 +148,15 @@ function drawRotated(context, image, x, y, degrees) {
 function snakeEatTail(snakeHead, arrSnake) {
     for (let i = 0; i < arrSnake.length; i++) {
         if (snakeHead.x == arrSnake[i].x && snakeHead.y == arrSnake[i].y) {
-            clearInterval(game);
+            endGame();
         }
     }
 }
+
+function endGame() {
+    clearInterval(game);
+    ctx.drawImage(gameOverImage, 100, 100);
+}
+
 
 let game = setInterval(drawSnakeGame, 200);
