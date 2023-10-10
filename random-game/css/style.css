@@ -34,6 +34,18 @@ body {
     background-repeat: no-repeat;
 }
 
+.score_text {
+    position: relative;
+    top: 65px;
+    left: 55px;
+    color: #fcf7fd;
+}
+
+.score {
+    font-size: 32px;
+    color: #fcf7fd;
+}
+
 #canvas {
     display: block;
     border-radius: 10px;

@@ -1,3 +1,4 @@
+const scoreText = document.querySelector('.score');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -27,13 +28,6 @@ snakeCoordinates[1] = {
 	x: 9 * step,
 	y: 10 * step
 };
-
-// ********
-snakeCoordinates[2] = {
-	x: 9 * step,
-	y: 11 * step
-};
-// ******
 
 function drawBackground() {
     ctx.drawImage(background, 0, 0);
@@ -69,7 +63,7 @@ function setRoute(ev) {
 
 document.addEventListener('keydown', setRoute);
 
-function drawGame() {
+function drawSnakeGame() {
 
     ctx.drawImage(background, 0, 0);
     ctx.drawImage(foodImage, foodCoordinates.x, foodCoordinates.y);
@@ -85,25 +79,31 @@ function drawGame() {
     let snakeX = snakeCoordinates[0].x;
 	let snakeY = snakeCoordinates[0].y;
 
-    snakeCoordinates.pop();
+    if (snakeX == foodCoordinates.x && snakeY == foodCoordinates.y) {
+		score++;
+		foodCoordinates = getFoodCoordinates();
+	} else {
+        snakeCoordinates.pop();
+    }
+
+    scoreText.innerHTML = score.toString();
 
 	if(snakeX < 0 || snakeX > step * 19 || snakeY < 0 || snakeY > step * 19)
 		clearInterval(game);
 
-	if (route == 'left') {
-        snakeX -= step;
-    }
-
-	if (route == 'right') {
-        snakeX += step;
-    }
-
-	if (route == 'up') {
-        snakeY -= step;
-    }
-
-	if (route == 'down') {
-        snakeY += step;
+    switch (route) {
+        case 'left':
+            snakeX -= step;
+            break;
+        case 'right':
+            snakeX += step;
+            break;
+        case 'up':
+            snakeY -= step;
+            break;
+        case 'down':
+            snakeY += step;
+            break;
     }
 
 	let newSnakeHead = {
@@ -111,44 +111,25 @@ function drawGame() {
 		y: snakeY
 	};
 
+    snakeEatTail(newSnakeHead, snakeCoordinates);
+
 	snakeCoordinates.unshift(newSnakeHead);
 }
 
 function drawRotated(context, image, x, y, degrees) {
     context.save();
-    context.translate(x + image.width/2, y + image.height/2);
-    context.rotate(degrees*Math.PI/180);
-    context.drawImage(image, - image.width/2, - image.height/2);
+    context.translate(x + image.width / 2, y + image.height / 2);
+    context.rotate(degrees * Math.PI / 180);
+    context.drawImage(image, - image.width / 2, - image.height / 2);
     context.restore();
 }
 
-function drawSnakePart(context, snakePart, x, y) {
-
-    if (snakePart === 'body') {
-        if (route == 'up' || route == 'down') {
-            context.drawImage(snakeBodyVerticalImage, x, y);
-        } else {
-            context.drawImage(snakeBodyHorizontalImage, x, y);
-        }
-    } else if (snakePart === 'tip_tail') {
-        switch (route) {
-            case 'up':
-                context.drawImage(snakeTipTailUpImage, x, y);
-                break;
-            case 'right':
-                context.drawImage(snakeTipTailRightImage, x, y);
-                break;
-            case 'down':
-                context.drawImage(snakeTipTailDownImage, x, y);
-                break;
-            case 'left':
-                context.drawImage(snakeTipTailLeftImage, x, y);
-                break;
-            default:
-                break;
+function snakeEatTail(snakeHead, arrSnake) {
+    for (let i = 0; i < arrSnake.length; i++) {
+        if (snakeHead.x == arrSnake[i].x && snakeHead.y == arrSnake[i].y) {
+            clearInterval(game);
         }
     }
-
 }
 
-let game = setInterval(drawGame, 200);
+let game = setInterval(drawSnakeGame, 200);
