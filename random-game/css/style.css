@@ -13,31 +13,40 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 96vh;
+    min-height: 100vh;
     max-width: 1280px;
-    margin: 10px auto;
+    margin: 0 auto;
 }
 
 .main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: flex-start;
     align-items: center;
     min-height: 760px;
 }
 
 .score_plate {
-    height: 190px;
-    width: 594px;
+    height: 168px;
+    width: 520px;
     background-image: url('../assets/img/plate.png');
     background-repeat: no-repeat;
 }
 
-.score_text {
+.score_name {
+    width: 320px;
     position: relative;
-    top: 65px;
-    left: 55px;
+    top: 50px;
+    left: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score_text {
+    width: 120px;
+    flex-shrink: 0;
     color: #fcf7fd;
 }
 
@@ -46,10 +55,46 @@ body {
     color: #fcf7fd;
 }
 
+.name_text {
+    flex-grow: 1;
+    color: #17d3d3;
+    font-weight: bold;
+}
+
 #canvas {
     display: block;
     border-radius: 10px;
-    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.8);
+}
+
+.buttons {
+    width: 560px;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    background-color: #fcf7fd;
+    border: 3px solid #17d3d3;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    font-size: large;
+    font-weight: bold;
+    color:#17d3d3;
+}
+.button:hover, .button:focus {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #e1dde2;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.button:focus {
+    outline: none;
 }
 
 .footer_context {
@@ -64,15 +109,74 @@ body {
 
 .github_logo {
     width: 35px;
-    margin: 15px 30px;
+    margin: 15px 55px 15px 30px;
 }
 
 .rss_logo {
     width: 80px;
-    margin: 15px 30px;
+    margin: 15px 30px 15px 10px;
 }
 
 .github_logo:hover, .rss_logo:hover {
     transform: scale(1.2);
     transition: 0.6s;
+}
+
+.new_player_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.display_none {
+    display: none;
+}
+
+.enter_player_name {
+    width: 30vw;
+    padding-bottom: 20px;
+    background-color: #fcf7fd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+}
+
+.text {
+    margin: 10px 0;
+}
+
+.player_name_input {
+    width: 26vw;
+    height: 5vh;
+    margin: 10px 0;
+    border: 3px solid #646065;
+    border-radius: 10px;
+    background-color: #b5aeb7;
+    color: #148383;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close_new_player_cnt {
+    background-image: url('../assets/img/cross.svg');
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 1px;
+    left: 14vw;
+}
+
+.close_new_player_cnt:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
 }
