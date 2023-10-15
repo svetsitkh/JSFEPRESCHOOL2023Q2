@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+    <title>Snake Game</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/snake_game_32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/snake_game_16.png">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="body_container">
         <main class="main">
             <div class="score_plate">
-                <div class="score_text">
-                    <h2>Score:   <span class="score">0</span></h2>
+                <div class="score_name">
+                    <div class="score_text">
+                        <h2>Score: <span class="score">0</span></h2>
+                    </div>
+                    <div class="name_text">
+                        <h2><span class="player_name"></span></h2>
+                    </div>
                 </div>
-
             </div>
             <canvas id="canvas" width="560" height="560">
-
             </canvas>
+            <div class="buttons">
+                <!-- <button class="button"></button> -->
+                <button class="button" id="new_game" autofocus>New game</button>
+                <!-- <button class="button"></button> -->
+            </div>
         </main>
 
         <footer class="footer_context">
@@ -39,6 +51,16 @@
         </footer>
     </div>
 
+    <div class="new_player_container display_none">
+        <div class="enter_player_name">
+            <span class="close_new_player_cnt"></span>
+            <h2 class="text">Enter your name:</h2>
+            <input class="player_name_input" type="text" autofocus maxlength="20">
+            <button class="button" id="btn_new_name">Ok</button>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 </body>
+
 </html>
