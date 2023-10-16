@@ -53,12 +53,14 @@ function newSnake() {
     let snakeArr = [];
     snakeArr[0] = {
         x: 9 * step,
-        y: 9 * step
+        y: 9 * step,
+        routeDegrees: 0
     };
 
     snakeArr[1] = {
         x: 9 * step,
-        y: 10 * step
+        y: 10 * step,
+        routeDegrees: 0
     };
 
     return snakeArr;
@@ -139,9 +141,9 @@ function drawSnakeGame() {
 
     for(let i = 0; i < snakeCoordinates.length; i++) {
         if (i == 0) {
-            drawRotated(ctx, snakeHeadImage, snakeCoordinates[i].x, snakeCoordinates[i].y, routeDegrees);
+            drawRotated(ctx, snakeHeadImage, snakeCoordinates[i].x, snakeCoordinates[i].y, snakeCoordinates[i].routeDegrees);
         } else {
-            drawRotated(ctx, snakeBodyImage, snakeCoordinates[i].x, snakeCoordinates[i].y, routeDegrees);
+            drawRotated(ctx, snakeBodyImage, snakeCoordinates[i].x, snakeCoordinates[i].y, snakeCoordinates[i].routeDegrees);
         }
 	}
 
@@ -179,7 +181,8 @@ function drawSnakeGame() {
 
 	let newSnakeHead = {
 		x: snakeX,
-		y: snakeY
+		y: snakeY,
+        routeDegrees: routeDegrees
 	};
 
     snakeEatTail(newSnakeHead, snakeCoordinates);
