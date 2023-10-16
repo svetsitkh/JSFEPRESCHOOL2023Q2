@@ -30,9 +30,9 @@
             <canvas id="canvas" width="560" height="560">
             </canvas>
             <div class="buttons">
-                <!-- <button class="button"></button> -->
+                <button class="button" id="help">?</button>
                 <button class="button" id="new_game" autofocus>New game</button>
-                <!-- <button class="button"></button> -->
+                <button class="button" id="results">Results</button>
             </div>
         </main>
 
@@ -51,12 +51,29 @@
         </footer>
     </div>
 
-    <div class="new_player_container display_none">
+    <div class="container_on_top display_none" id="new_player_name_cnt">
         <div class="enter_player_name">
-            <span class="close_new_player_cnt"></span>
+            <span class="close_btn close_new_player_cnt"></span>
             <h2 class="text">Enter your name:</h2>
-            <input class="player_name_input" type="text" autofocus maxlength="20">
+            <input class="player_name_input" type="text" autofocus maxlength="18">
             <button class="button" id="btn_new_name">Ok</button>
+        </div>
+    </div>
+
+    <div class="container_on_top display_none" id="results_cnt">
+        <div class="display_results">
+            <span class="close_btn close_results_cnt"></span>
+            <h2 class="text">Results:</h2>
+            <div class="results_lines"></div>
+        </div>
+    </div>
+
+    <div class="container_on_top display_none" id="help_cnt">
+        <div class="display_help">
+            <span class="close_btn close_help_cnt"></span>
+            <h2 class="text">How to play</h2>
+            <p>Use arrows to move</p>
+            <p>Use the space bar to pause/resume the game</p>
         </div>
     </div>
 
