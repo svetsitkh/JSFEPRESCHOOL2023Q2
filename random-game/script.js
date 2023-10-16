@@ -1,8 +1,15 @@
 const btnNewGame = document.getElementById('new_game');
+const btnResults = document.getElementById('results');
+const btnHelp = document.getElementById('help');
 const btnNewPlayerName = document.getElementById('btn_new_name');
-const newPlayerСontainer = document.querySelector('.new_player_container');
+const newPlayerСontainer = document.getElementById('new_player_name_cnt');
 const playerNameInput = document.querySelector('.player_name_input');
 const btnCloseNewPlayer = document.querySelector('.close_new_player_cnt');
+const resultsСontainer = document.getElementById('results_cnt');
+const btnCloseResults = document.querySelector('.close_results_cnt');
+const resultsLines = document.querySelector('.results_lines');
+const helpСontainer = document.getElementById('help_cnt');
+const btnCloseHelp = document.querySelector('.close_help_cnt');
 const scoreText = document.querySelector('.score');
 const playerNameText = document.querySelector('.player_name');
 const canvas = document.getElementById('canvas');
@@ -12,8 +19,14 @@ let step = 28;
 let score = 0;
 let playerName = 'Player 1';
 let isPaused = false;
-let isEnteringPlayerName = false;
+let isContainerDisplayedOnTop = false;
 let game;
+
+let resultsArr = [];
+let lcResults = localStorage.getItem('results');
+if (lcResults) {
+    resultsArr = JSON.parse(lcResults);
+}
 
 const background = new Image();
 background.src = './assets/img/background.jpg';
@@ -68,12 +81,12 @@ let route = 'up';
 let routeDegrees = 0;
 
 function setRoute(ev) {
-    if (ev.keyCode == 32 && !isEnteringPlayerName) {
+    if (ev.keyCode == 32 && !isContainerDisplayedOnTop) {
         ev.preventDefault();
         isPaused = !isPaused;
     }
 
-    if (!isPaused && !isEnteringPlayerName) {
+    if (!isPaused && !isContainerDisplayedOnTop) {
         if (ev.keyCode == 38 && route != 'down') {
             ev.preventDefault();
             route = 'up';
@@ -95,7 +108,6 @@ function setRoute(ev) {
 document.addEventListener('keydown', setRoute);
 
 function newGame() {
-    console.log('new game');
     if (game) {
         console.log(game);
         clearInterval(game);
@@ -113,7 +125,7 @@ function newGame() {
 
 function drawSnakeGame() {
 
-    if (isEnteringPlayerName) {
+    if (isContainerDisplayedOnTop) {
         return;
     }
 
@@ -192,26 +204,78 @@ function snakeEatTail(snakeHead, arrSnake) {
 }
 
 function endGame() {
+    const newResult = {
+        name: playerName,
+        score: score
+    }
+    resultsArr.push(newResult);
+    localStorage.setItem('results', JSON.stringify(resultsArr));
     clearInterval(game);
     ctx.drawImage(gameOverImage, 100, 100);
 }
 
+function showResults() {
+    resultsLines.innerHTML = ''
+    resultsArr.sort((a, b) => a.score < b.score ? 1 : -1);
+    for (let i = 0; (i < 10 && i < resultsArr.length); i++) {
+        resultsLines.append(createResultLine(resultsArr[i]));
+    }
+}
+
+function createResultLine(obj) {
+    const divWrapper = document.createElement('div');
+    const divName = document.createElement('div');
+    const divScore = document.createElement('div');
+
+    divName.innerHTML = obj.name;
+    divScore.innerHTML = obj.score;
+
+    divWrapper.classList.add('result_wrapper');
+
+    divWrapper.append(divName)
+    divWrapper.append(divScore)
+
+    return divWrapper
+}
+
 btnNewGame.addEventListener('click', (e) => {
-    isEnteringPlayerName = true;
+    isContainerDisplayedOnTop = true;
+    btnNewGame.blur();
     playerNameInput.value = playerName;
     newPlayerСontainer.classList.remove('display_none');
 })
 
 btnCloseNewPlayer.addEventListener('click', (e) => {
     newPlayerСontainer.classList.add('display_none');
-    isEnteringPlayerName = false;
+    isContainerDisplayedOnTop = false;
 })
 
 btnNewPlayerName.addEventListener('click', (e) => {
     newPlayerСontainer.classList.add('display_none');
-    isEnteringPlayerName = false;
+    isContainerDisplayedOnTop = false;
     playerName = playerNameInput.value;
     playerNameText.innerHTML = playerName;
     newGame();
 })
-// let game = setInterval(drawSnakeGame, 200);
+
+btnResults.addEventListener('click', (e) => {
+    isContainerDisplayedOnTop = true;
+    resultsСontainer.classList.remove('display_none');
+    showResults();
+})
+
+btnCloseResults.addEventListener('click', (e) => {
+    resultsСontainer.classList.add('display_none');
+    isContainerDisplayedOnTop = false;
+})
+
+btnHelp.addEventListener('click', (e) => {
+    isContainerDisplayedOnTop = true;
+    helpСontainer.classList.remove('display_none');
+})
+
+btnCloseHelp.addEventListener('click', (e) => {
+    helpСontainer.classList.add('display_none');
+    isContainerDisplayedOnTop = false;
+})
+
